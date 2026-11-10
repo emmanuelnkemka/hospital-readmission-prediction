@@ -130,7 +130,7 @@ The dataset uses `?` to represent missing information. These values are converte
 df = df.replace("?", np.nan)
 ```
 
-Columns with extremely high missingness are removed, including:
+Four columns were dropped, for different reasons:
 
 - `weight` (96.9% missing) — too sparse to be usable.
 - `max_glu_serum` (94.7% missing) — too sparse to be usable.
