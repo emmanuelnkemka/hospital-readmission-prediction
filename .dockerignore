@@ -1,0 +1,10 @@
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.git/
+data/
+diabetes_data/
+diabetes_data.zip
+*.ipynb
+.DS_Store
