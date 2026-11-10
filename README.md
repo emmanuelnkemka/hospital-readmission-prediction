@@ -132,15 +132,15 @@ df = df.replace("?", np.nan)
 
 Columns with extremely high missingness are removed, including:
 
-- `weight` (96.9% missing)
-- `max_glu_serum` (94.7% missing)
-- `A1Cresult` 83% of patients had no A1C test recorded. Note that these are not
+- `weight` (96.9% missing) — too sparse to be usable.
+- `max_glu_serum` (94.7% missing) — too sparse to be usable.
+- `A1Cresult` — 83% of patients had no A1C test recorded. Note that these are not
   missing values in the usual sense: the raw file stores `"None"`, meaning the test
   was not ordered, and pandas reads that string as missing. Whether a test was
   ordered is itself potentially informative, so dropping this column is a
   limitation of the project rather than a clean win.
-- `payer_code`(39.6%) a judgment call rather than a necessity. Retaining
-  it as an explicit `"unknown"` category would also have been defensible.
+- `payer_code` (39.6% missing) — a judgment call rather than a necessity. Retaining 
+it as an explicit `"unknown"` category would also have been defensible.
 
 Remaining missing categorical values are replaced with `"unknown"`.
 
@@ -395,13 +395,13 @@ validation score because the final model was trained on a third more data.
 ## Project Structure
 
 ```text
-hospital-readimission-prediction/
+hospital-readmission-prediction/
 │
 ├── data/
 │   ├── diabetic_data.csv
 │   └── IDS_mapping.csv
 │
-├── hospital-readimission.ipynb
+├── notebook.ipynb
 ├── train.py
 ├── predict.py
 ├── predict-test.py
@@ -597,7 +597,8 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Download the dataset if it is not included in the repository.
+The dataset is committed to this repository at `data/diabetic_data.csv`, so no
+download is required. The download instructions above are included for reference.
 
 Then execute:
 
